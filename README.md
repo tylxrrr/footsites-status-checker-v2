@@ -3,10 +3,11 @@ A simple footsites status checker v2!
 
 
 requirements
-  footsites status checker
-  EditThisCookie
-  Python 3.7+
+  footsites status checker,
+  EditThisCookie,
+  Python 3.7+,
   Requests
+  
 change log
   made one script that will find the site you put in the orders.json and check order status for that site
 
