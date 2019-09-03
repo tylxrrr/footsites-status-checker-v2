@@ -1,14 +1,11 @@
 import requests
 import json
-import os
-
-os.system('cls')
 
 with open('orders.json') as json_file:
     orders = json.load(json_file)
 
 def checkOrder(orderNum, customerNum, importantCookie, scriptStore, store):
-    print("\u001b[33;1mchecking status of " + orderNum + " for " + "\u001b[34m" + store)
+    print("checking status of " + orderNum + " for " + store)
     session = requests.Session()
 
     sessionHeaders = {
@@ -51,19 +48,19 @@ def checkOrder(orderNum, customerNum, importantCookie, scriptStore, store):
         orderStatus1 = jsonStatus['orderStatus']
         orderStatus2 = jsonStatus['lineItems'][0]['itemStatus']
 
-        print("\u001b[32;1mstatus of " + orderNum + " is " + orderStatus1 + " and " + orderStatus2 + " for " + "\u001b[34m" + store)
+        print("status of " + orderNum + " is " + orderStatus1 + " and " + orderStatus2 + " for " + store)
     elif "match" in checkReq.text:
-        print("\u001b[31;1merror with order numbers or/and customer numbers, please check order numbers or/and customer numbers" + " for " + "\u001b[34m" + store)
+        print("error with order numbers or/and customer numbers, please check order numbers or/and customer numbers" + " for " + store)
         exit()
     else:
-        print("\u001b[31;1mcookie invalid! please get a new cookie" + " for " + "\u001b[34m" + store + ": ")
-        importantCookie = input("\u001b[36;1mplease paste cookie here" + " for " + "\u001b[34m" + store + ": ")
+        print("cookie invalid! please get a new cookie" + " for " + store + ": ")
+        importantCookie = input("please paste cookie here" + " for " + store + ": ")
         checkOrder(orderNum, cusNum, importantCookie, scriptStore, store)
 
 def getCookie():
     global importantCookie
     firstStore  = orders["orders"][0]["store"]
-    importantCookie = input("\u001b[36;1mplease paste cookie here" + " for " + "\u001b[34m" + firstStore + ": ")
+    importantCookie = input("please paste cookie here" + " for " + firstStore + ": ")
 getCookie()
 
 stores = {
@@ -90,7 +87,7 @@ for i in orders["orders"]:
             scriptStore = stores[j]
             checkStore = True
         elif checkStore == False and j == 4:
-            print("\u001b[31;1m" + store + " is not a valid site...please check orders.json and make sure you have the correct site")
+            print(store + " is not a valid site...please check orders.json and make sure you have the correct site")
             exit()
     checkOrder(orderNum, cusNum, importantCookie, scriptStore, store)
 
