@@ -13,3 +13,5 @@ made one script that will find the site you put in the orders.json and check ord
 
 
 guide: https://docs.google.com/document/d/1FcH1pAWaSpVjcgHAq8nFjO7CyESbpF7Nz3uQvjWpJU0/edit?usp=sharing
+
+trash quality video guide: https://youtu.be/VhYDizqU604
